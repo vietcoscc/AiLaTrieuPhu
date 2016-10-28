@@ -69,7 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public GamingFragment getGamingFragment() {
         return gamingFragment;
     }
-
+    public void setInvisibleLayout(){
+        layout.setVisibility(View.INVISIBLE);
+    }
     @Override
     public void onBackPressed() {
         if (layout.getVisibility()==View.INVISIBLE) {
