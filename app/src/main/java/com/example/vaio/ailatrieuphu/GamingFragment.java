@@ -163,6 +163,10 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
 
+    public void stopFragemnt() {
+        timer.cancel();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void showDialog() {
         recentLevel = 0;
@@ -204,7 +208,7 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                             recentLevel++;
                             tvRecentQuestion.setText("Câu : " + recentLevel);
                             initData();
-                            totalMoney += PRIZE[recentLevel-1];
+                            totalMoney += PRIZE[recentLevel - 1];
                             tvMoney.setText(totalMoney + "");
                             enableClick();
                         }
@@ -367,7 +371,9 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                 checkAnswer(ANSWER_D, v);
                 break;
             case R.id.btn_help_stop:
-
+                timer.cancel();
+                btnHelpStop.setImageResource(R.drawable.atp__activity_player_button_image_help_stop_active);
+                btnHelpStop.setClickable(false);
                 break;
             case R.id.btn_help_5050:
                 btnHelp5050.setImageResource(R.drawable.atp__activity_player_button_image_help_5050_active);
@@ -423,6 +429,7 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.btn_help_call:
+                btnHelpCall.setClickable(false);
                 btnHelpCall.setImageResource(R.drawable.atp__activity_player_button_image_help_call_x);
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_DIAL);

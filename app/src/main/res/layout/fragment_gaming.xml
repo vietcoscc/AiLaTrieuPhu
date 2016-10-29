@@ -24,6 +24,7 @@
             android:layout_centerInParent="true" />
 
         <TextView
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:id="@+id/money"
             style="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
@@ -39,7 +40,6 @@
             android:id="@+id/money_icon"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_toLeftOf="@id/money"
             android:src="@drawable/atp__activity_profile_icon_money" />
 
@@ -142,6 +142,7 @@
         android:textColor="@color/white" />
 
     <TextView
+        style="?android:attr/textAppearanceLarge"
         android:id="@+id/tv_recent_question"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
