@@ -1,7 +1,9 @@
 package com.example.vaio.ailatrieuphu;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +11,19 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView btnPlay;
+    private ImageView btnPlay;
     private ProgressFragment progressFragment;
     private GamingFragment gamingFragment = new GamingFragment();
     private FrameLayout layout;
-
+    private RelativeLayout startLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-        btnPlay = (TextView) findViewById(R.id.btn_play);
+        btnPlay = (ImageView) findViewById(R.id.btn_play);
         btnPlay.setOnClickListener(this);
         layout = (FrameLayout) findViewById(R.id.main_frame);
+        startLayout = (RelativeLayout) findViewById(R.id.activity_main);
     }
 
     public void replaceFragment(Fragment fragment) {
@@ -59,7 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layout.setVisibility(View.VISIBLE);
         TranslateAnimation animation = (TranslateAnimation) AnimationUtils.loadAnimation(this, R.anim.anim_screen);
         layout.startAnimation(animation);
-
+//        TranslateAnimation animation1 = (TranslateAnimation) AnimationUtils.loadAnimation(this,R.anim.anim_start_screen);
+//        startLayout.startAnimation(animation1);
     }
 
     public ProgressFragment getProgressFragment() {
@@ -74,10 +81,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onBackPressed() {
+
+
         if (layout.getVisibility()==View.INVISIBLE) {
             super.onBackPressed();
         } else {
-            layout.setVisibility(View.INVISIBLE);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("Bạn có muốn thoát không ?");
+            dialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    layout.setVisibility(View.INVISIBLE);
+                    gamingFragment = new GamingFragment();
+                }
+            });
+            dialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            dialog.create().show();
+
         }
         btnPlay.setVisibility(View.VISIBLE);
         btnPlay.setClickable(true);

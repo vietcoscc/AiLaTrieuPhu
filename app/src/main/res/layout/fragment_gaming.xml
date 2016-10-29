@@ -1,64 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
-    <TextView
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/tv_recent_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="120dp"
-        android:text="@string/recent_question" />
+    android:background="@drawable/atp__activity_player_layout_money_background">
 
-    <TextView
-        android:id="@+id/tv_question"
+    <RelativeLayout
+        android:id="@+id/profile_bar"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_height="40dp"
+        android:background="@drawable/atp__activity_profile_bar_background"
+        android:scaleType="fitXY">
+
+        <ProgressBar
+            android:id="@+id/progress_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/time_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/money"
+            style="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="0"
+            android:textColor="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/money_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toLeftOf="@id/money"
+            android:src="@drawable/atp__activity_profile_icon_money" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/profile_bar"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:maxLength="80"
-        android:textColor="@color/white" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_help_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_player_button_image_help_stop" />
+
+        <ImageView
+            android:id="@+id/btn_help_5050"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_player_button_image_help_5050" />
+
+        <ImageView
+            android:id="@+id/btn_help_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_player_button_image_help_change_question" />
+
+        <ImageView
+            android:id="@+id/btn_help_audience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_player_button_image_help_audience" />
+
+        <ImageView
+            android:id="@+id/btn_help_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_player_button_image_help_call" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/answer_a"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tv_question"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/margin_left"
         android:layout_marginRight="@dimen/margin_right"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/atp__activity_player_layout_play_answer_background_normal"
         android:gravity="center" />
 
     <TextView
         android:id="@+id/answer_b"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/answer_a"
         android:layout_marginLeft="@dimen/margin_left"
         android:layout_marginRight="@dimen/margin_right"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/atp__activity_player_layout_play_answer_background_normal"
         android:gravity="center" />
 
     <TextView
         android:id="@+id/answer_c"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/answer_b"
         android:layout_marginLeft="@dimen/margin_left"
         android:layout_marginRight="@dimen/margin_right"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/atp__activity_player_layout_play_answer_background_normal"
         android:gravity="center" />
 
     <TextView
         android:id="@+id/answer_d"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/answer_c"
         android:layout_marginLeft="@dimen/margin_left"
         android:layout_marginRight="@dimen/margin_right"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/atp__activity_player_layout_play_answer_background_normal"
         android:gravity="center" />
 
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/atp__activity_player_layout_play_question_background"
+        android:gravity="center"
+        android:maxWidth="10dp"
+        android:padding="30dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_recent_question"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/tv_question"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/margin_left_long"
+        android:background="@drawable/atp__activity_player_layout_play_order_question"
+        android:gravity="center"
+        android:text="@string/recent_question"
+        android:textColor="@color/colorPrimary" />
+
+
+    <TextView
+
+        android:id="@+id/answer_a_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/answer_a"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:textColor="@color/white" />
+
+    <TextView
+
+        android:id="@+id/answer_b_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/answer_b"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:textColor="@color/white" />
+
+    <TextView
+
+        android:id="@+id/answer_c_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/answer_c"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/answer_d_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/answer_d"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

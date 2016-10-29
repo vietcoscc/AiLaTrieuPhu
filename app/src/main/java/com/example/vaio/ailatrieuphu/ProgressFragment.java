@@ -37,9 +37,11 @@ public class ProgressFragment extends Fragment implements View.OnClickListener{
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.startAnimation();
         mainActivity.replaceFragment(mainActivity.getGamingFragment());
+
     }
     public void onBackPressed(){
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.hideFragemnt(mainActivity.getProgressFragment());
+
     }
 }

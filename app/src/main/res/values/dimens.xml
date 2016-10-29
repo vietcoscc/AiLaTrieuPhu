@@ -5,4 +5,5 @@
     <dimen name="tv_start_margin_top">380dp</dimen>
     <dimen name="margin_left">30dp</dimen>
     <dimen name="margin_right">35dp</dimen>
+    <dimen name="margin_left_long">150dp</dimen>
 </resources>
