@@ -70,6 +70,8 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
     private Timer timer = new Timer();
     private int totalMoney = 0;
 
+
+    private TimerTask timerTask;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -135,7 +137,10 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
 
         tvRecentQuestion.setText("Câu : " + (recentLevel + 1));
 
-        TimerTask timerTask = new TimerTask() {
+       timerTask();
+    }
+    public void timerTask(){
+        timerTask = new TimerTask() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
@@ -162,7 +167,6 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
         timer = new Timer();
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
-
     public void stopFragemnt() {
         timer.cancel();
     }
@@ -356,18 +360,22 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.answer_a:
                 checkAnswer(ANSWER_A, v);
+
                 disableClick();
                 break;
             case R.id.answer_b:
                 disableClick();
+                timer.cancel();
                 checkAnswer(ANSWER_B, v);
                 break;
             case R.id.answer_c:
                 disableClick();
+
                 checkAnswer(ANSWER_C, v);
                 break;
             case R.id.answer_d:
                 disableClick();
+
                 checkAnswer(ANSWER_D, v);
                 break;
             case R.id.btn_help_stop:
@@ -394,6 +402,7 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                         handleBtnHelp5050(r);
                         handleBtnHelp5050(r2);
                         btnHelp5050.setClickable(false);
+                        timerTask();
                     }
                 }, 2000);
                 btnHelp5050.setClickable(false);
@@ -408,6 +417,7 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                         btnHelpChange.setImageResource(R.drawable.atp__activity_player_button_image_help_change_question_x);
                         initData();
                         btnHelpChange.setClickable(false);
+                        timerTask();
                     }
                 }, 2000);
                 btnHelpChange.setClickable(false);
@@ -423,6 +433,7 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                         btnHelpAudience.setImageResource(R.drawable.atp__activity_player_button_image_help_audience_x);
                         handleBtnAudience();
                         btnHelpAudience.setClickable(false);
+                        timerTask();
                     }
                 }, 2000);
                 btnHelpAudience.setClickable(false);
@@ -434,8 +445,10 @@ public class GamingFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_DIAL);
                 startActivity(intent);
+                timerTask();
                 break;
         }
+        timer.cancel();
 
     }
 }

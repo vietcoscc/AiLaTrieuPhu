@@ -35,6 +35,9 @@ public class ProgressFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 
         MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.hideAll();
+        mainActivity.initViews();
+        mainActivity.background(R.drawable.progress);
         mainActivity.startAnimation();
         mainActivity.replaceFragment(mainActivity.getGamingFragment());
 
