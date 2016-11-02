@@ -6,4 +6,5 @@
     <dimen name="margin_left">30dp</dimen>
     <dimen name="margin_right">35dp</dimen>
     <dimen name="margin_left_long">150dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
 </resources>

@@ -24,13 +24,13 @@
             android:layout_centerInParent="true" />
 
         <TextView
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:id="@+id/money"
             style="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:text="0"
             android:textColor="@color/white" />
@@ -142,8 +142,8 @@
         android:textColor="@color/white" />
 
     <TextView
-        style="?android:attr/textAppearanceLarge"
         android:id="@+id/tv_recent_question"
+        style="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_alignTop="@+id/tv_question"
@@ -160,7 +160,7 @@
         android:id="@+id/answer_a_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/answer_a"
+        android:layout_above="@id/answer_a"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:textColor="@color/white" />
 
@@ -189,5 +189,6 @@
         android:layout_alignTop="@id/answer_d"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:textColor="@color/white" />
+
 
 </RelativeLayout>
